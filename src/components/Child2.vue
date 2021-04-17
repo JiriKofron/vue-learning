@@ -33,13 +33,17 @@ export default {
   name: 'Child2',
   data() {
     return {
+      // declaring the variable, so it can be reassigned by the currentTarget id
       num: '',
     };
   },
   methods: {
+    // using event to get details about elements
     clickedNumber: function(event) {
+      // storing current id of the li element to the variable num, using event parameter and "currentTarget"
       let num = event.currentTarget.id;
       console.log(num);
+      // Vue feature - emit, it takes the method "clickedNumber" and the variable "num" and send it to the parent component
       this.$emit('clickedNumber', num);
     },
   },
