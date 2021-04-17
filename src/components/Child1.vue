@@ -2,7 +2,7 @@
   <section class="child1">
     <h1>Child 1</h1>
     Číslo v Child2: {{ num }}
-    <div v-for="post in posts" v-bind:key="post.id" v-show="post.id === numero">
+    <div v-for="post in posts" v-bind:key="post.id" v-show="post.id == num">
       <h2>{{ post.title }}</h2>
     </div>
   </section>
@@ -27,7 +27,6 @@ export default {
         { id: 3, title: 'Den třetí' },
         { id: 4, title: 'Den čtvrtý' },
       ],
-      numero: this.num,
     };
   },
 };
