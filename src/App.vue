@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <Child1 />
-    <Child2 />
+    <p>Číslo z Child2: {{ num }}</p>
+    <Child1 :num="num" />
+    <Child2 @clickedNumber="clickedNumber" />
   </div>
 </template>
 
@@ -14,6 +15,17 @@ export default {
   components: {
     Child1,
     Child2,
+  },
+  data() {
+    return {
+      num: '',
+    };
+  },
+  methods: {
+    clickedNumber(num) {
+      this.num = num;
+      console.log(num);
+    },
   },
 };
 </script>
@@ -30,5 +42,11 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100%;
+  flex-wrap: wrap;
+}
+
+p {
+  flex-basis: 100%;
+  display: block;
 }
 </style>
